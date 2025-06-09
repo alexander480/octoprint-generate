@@ -1,0 +1,41 @@
+<!-- octoprint_generate/templates/generate_tab.jinja2 -->
+<div id="tab_plugin_generate" class="tab-pane">
+  <div class="container-fluid">
+    <h3>Text &amp; Image to 3D Model</h3>
+
+    <!-- API Key Input -->
+    <div class="form-group">
+      <label for="apiKey">Meshy.AI API Key</label>
+      <input type="text" id="apiKey" class="form-control"
+             data-bind="value: settings.settings.plugins.generate.api_key">
+      <button class="btn btn-secondary" data-bind="click: settings.saveData">Save Key</button>
+    </div>
+
+    <hr />
+
+    <!-- Text-to-3D Prompt -->
+    <div class="form-group">
+      <label for="textPrompt">Text Prompt</label>
+      <input type="text" id="textPrompt" class="form-control"
+             data-bind="value: textPrompt">
+      <button class="btn btn-primary"
+              data-bind="click: generateTextModel">Generate from Text</button>
+    </div>
+
+    <!-- Image-to-3D Input -->
+    <div class="form-group">
+      <label for="imageFile">Image Input</label>
+      <input type="file" id="imageFile" accept="image/*"
+             data-bind="event: { change: onImageSelected }">
+      <button class="btn btn-primary"
+              data-bind="click: generateImageModel, enable: imageData">Generate from Image</button>
+    </div>
+
+    <!-- Download Link -->
+    <div class="form-group" data-bind="visible: generatedFileUrl">
+      <h4>Download Model</h4>
+      <a data-bind="attr: { href: generatedFileUrl, download: generatedFileName },
+                     text: generatedFileName"></a>
+    </div>
+  </div>
+</div>

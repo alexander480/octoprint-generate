@@ -1,0 +1,8 @@
+/* simple spacing for Generate tab */
+#tab_plugin_generate .form-group {
+  margin-bottom: 1em;
+}
+#tab_plugin_generate h3 {
+  margin-top: 0.5em;
+  margin-bottom: 1em;
+}
